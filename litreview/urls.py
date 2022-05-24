@@ -27,4 +27,6 @@ urlpatterns = [
     path('', feed.views.home, name='home'),
     path('posts/', feed.views.posts, name='posts'),
     path('follow/', follow.views.follow, name='follow'),
+    path('review/create/', feed.views.review_create, name='review_create'),
+    path('ticket/create/', feed.views.ticket_create, name='ticket_create'),
 ]
