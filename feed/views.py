@@ -1,12 +1,23 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
+from itertools import chain
+
 from . import forms
 from . import models
 
 @login_required
 def home(request):
-    return render(request, 'feed/home.html')
+    tickets = models.Ticket.objects.all()
+    reviews = models.Review.objects.all()
+    posts = sorted(
+        chain(reviews, tickets),
+        key=lambda post: post.time_created,
+        reverse=True
+    )
+    return render(request, 'feed/home.html', context={
+        'posts': posts,
+    })
 
 def posts(request):
     return render(request, 'feed/posts.html')
