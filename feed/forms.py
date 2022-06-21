@@ -26,7 +26,7 @@ class TicketForm(forms.ModelForm):
         },
         label_suffix='',
         label='Image',
-        required=False
+        required=True
     )
 
     class Meta:
