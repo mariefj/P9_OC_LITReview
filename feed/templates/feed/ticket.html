@@ -1,0 +1,17 @@
+<div>
+    <div>
+        {% if request.user == post.user %}
+            <p>Vous avez publié un ticket</p>
+        {% else %}
+            <p>Ticket - {{ post.user }}</p>
+        {% endif %}
+        <p>{{ post.time_created | date:'h:H, d F Y'}}</p>
+    </div>
+    <p>{{ post.title }}</p>
+    <p>{{ post.description }}</p>
+    {% if post.image %}
+        <div>
+            <img src={{post.image.url}}>
+        </div>
+    {% endif %}
+</div>

@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
 import authentication.views
 import feed.views
 import follow.views
@@ -28,6 +31,15 @@ urlpatterns = [
     path('posts/', feed.views.posts, name='posts'),
     path('follow/', follow.views.follow, name='follow'),
     path('unfollow/<id_user>', follow.views.unfollow, name='unfollow'),
-    path('review/create/', feed.views.review_create, name='review_create'),
     path('ticket/create/', feed.views.ticket_create, name='ticket_create'),
+    path('ticket/<id_ticket>/update', feed.views.ticket_update, name='ticket_update'),
+    path('ticket/<id_ticket>/delete', feed.views.ticket_delete, name='ticket_delete'),
+    path('review/create/', feed.views.review_create, name='review_create'),
+    path('review/<id_ticket>/answer', feed.views.review_answer, name='review_answer'),
+    path('review/<id_review>/update', feed.views.review_update, name='review_update'),
+    path('review/<id_review>/delete', feed.views.review_delete, name='review_delete'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

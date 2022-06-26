@@ -1,9 +1,21 @@
 {% extends 'base.html' %}
+{% load feed_extra_tags %}
 {% block content %}
     <h1>Accueil</h1>
     <a href="{% url 'ticket_create' %}">Demander une critique</a>
     <a href="{% url 'review_create' %}">Créer une critique</a>
     {% for post in posts %}
-    <p>Post: {{ post.title }}</p>
+        <hr>
+        {% with post|classname as post_classname %}
+        {% if post_classname == 'Ticket' %}
+            {% include 'feed/ticket.html' %}
+            <a href="{% url 'review_answer' post.id %}">Créer une critique</a>
+            {% if request.user == post.user %}
+                {% include 'feed/ticket_snippet_action.html' %}
+            {% endif %}
+        {% elif post_classname == 'Review' %}
+            {% include 'feed/review.html' %}
+        {% endif %}
+        {% endwith %}
     {% endfor %}
 {% endblock content %}
