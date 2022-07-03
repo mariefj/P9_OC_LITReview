@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&display=swap');
+
+/************** BASE *****************/
+
+:root {
+    --bg-color: #F6F9FF;
+    --flash-color: #815CFF;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    transition: all 0.2s ease 0s;
+}
+
+*:hover {
+    transition: all 0.2s ease 0s;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    font-family: 'Inter', sans-serif;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+h1 {
+    text-align: center;
+    color: var(--flash-color);
+}
+
+.button_full {
+    background: linear-gradient(90deg, #963EFF 0%, #8A50FF 12.14%, #8458FF 26.31%, #815CFF 38.46%, #7D62FF 46.55%, #6D79FF 59.2%, #608BFF 67.8%, #51A0FF 81.97%, #33CCFF 97.15%);
+    padding: 10px 26px;
+    border-radius: 1000px;
+}
+
+.button_stroke {
+    border-radius: 1000px;
+    padding: 6px 20px;
+    border: solid 3px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #963EFF, #33CCFF);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 2px 1000px 1px var(--bg-color) inset;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/**************** AUTH *******************/
+
+#auth {
+    display: flex;
+    padding: 5% 25%;
+    justify-content: space-between;
+}
+
+#auth div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#auth div:nth-child(2) form {
+    display: flex;
+    flex-direction: column;
+}
+
+#auth div:nth-child(2) form button {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+
+#signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/**************** NAV *******************/
+#navbar {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(25, 7, 57);
+    margin-bottom: 2%;
+}
+
+#navbar h1 {
+    margin-left: 46.5%;
+}
+
+#items-navbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 10%;
+    width: 30%;
+}
+
+#items-navbar a {
+    margin-left: 4%;
+}
+
+#items-navbar a:hover {
+    color: var(--flash-color);
+}
+
+/**************** HOME *******************/
+
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/**************** FOLLOW *******************/
+
+#follow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#follow-user {
+    width: 22%;
+}
+
+#unfollow {
+    width: 22%;
+}
+
+#follower {
+    width: 22%;
+}

@@ -8,6 +8,7 @@ from . import forms
 def follow(request):
     if request.method == 'GET':
         form = forms.UserFollowsForm()
+        # form = forms.UserFollowsForm(user=request.user)
         followed_users = models.UserFollows.objects.filter(user=request.user)
         following_users = models.UserFollows.objects.filter(followed_user=request.user)
         context = {'form': form, 'followed_users': followed_users, 'following_users': following_users}

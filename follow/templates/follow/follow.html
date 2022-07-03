@@ -1,20 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Suivre d'autres utilisateurs</h1>
-    <form method="post">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <button type="submit" >Envoyer</button>
-    </form>
+<div id="follow">
+    <h2>Suivre d'autres utilisateurs</h2>
+    <div id="follow-user">
+        <form method="post" class="flex">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button class="button_full" type="submit" >Envoyer</button>
+        </form>
+    </div>
     <h2>Abonnements</h2>
-    <div>
+    <div id="unfollow">
         {% if followed_users %}
         {% for elem in followed_users %}
-        <div>
+        <div class="flex">
             <p> {{ elem.followed_user }} </p>
             <form action="{% url 'unfollow' id_user=elem.followed_user.id %}" method="post">
                 {% csrf_token %}
-                <button type="submit"> Se désabonner</button>
+                <button class="button_stroke" type="submit"> Se désabonner</button>
             </form>
         </div>
         {% endfor %}
@@ -23,7 +26,7 @@
         {% endif %}
     </div>
     <h2>Abonnés</h2>
-    <div>
+    <div id="follower">
         {% if following_users %}
         {% for elem in following_users %}
         <div>
@@ -34,4 +37,5 @@
         <p> Vous n'avez pas d'abonnés</p>
         {% endif %}
     </div>
+</div>
 {% endblock content %}

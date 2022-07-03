@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load feed_extra_tags %}
 {% block content %}
-    <h1>Accueil</h1>
-    <a href="{% url 'ticket_create' %}">Demander une critique</a>
-    <a href="{% url 'review_create' %}">Créer une critique</a>
-    {% for post in posts %}
-        <hr>
+<div id="home">
+    <div id="home_buttons">
+        <a class="button_stroke" href="{% url 'ticket_create' %}">Demander une critique</a>
+        <a class="button_full" href="{% url 'review_create' %}">Créer une critique</a>
+    </div>
+        {% for post in posts %}
         {% with post|classname as post_classname %}
         {% if post_classname == 'Ticket' %}
             {% include 'feed/ticket.html' %}
@@ -18,4 +19,5 @@
         {% endif %}
         {% endwith %}
     {% endfor %}
+</div>
 {% endblock content %}

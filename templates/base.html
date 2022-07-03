@@ -1,16 +1,22 @@
+{% load static %}
+
 <html>
     <head>
         <title>LITReview</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     </head>
     <body>
-        <h1>LITReview</h1>
-        {% if user.is_authenticated %}
-        <div>
-            <a href="{% url 'home' %}">Accueil</a>
-            <a href="{% url 'posts' %}">Posts</a>
-            <a href="{% url 'follow' %}">Abonnements</a>
-            <a href="{% url 'logout' %}">Se déconnecter</a>
+        <div id="navbar">
+            <h1>LITReview</h1>
+            {% if user.is_authenticated %}
+            <div id="items-navbar">
+                <a href="{% url 'home' %}">Accueil</a>
+                <a href="{% url 'posts' %}">Posts</a>
+                <a href="{% url 'follow' %}">Abonnements</a>
+                <a href="{% url 'logout' %}">Se déconnecter</a>
+            </div>
+            {% endif %}
         </div>
-        {% endif %}
         {% block content %}{% endblock content %}
+    </body>
 </html>

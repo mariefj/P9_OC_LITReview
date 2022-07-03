@@ -11,6 +11,7 @@
         <p>{{ post.headline }}</p>
         <p>{{ post.rating }}</p>
     </div>
+    <p>{{ post.body }}</p>
     <div>
         {% include 'feed/ticket.html' with post=post.ticket %}
     </div>

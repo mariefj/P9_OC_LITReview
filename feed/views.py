@@ -45,7 +45,6 @@ def posts(request):
         'posts': posts,
     })
 
-
 @login_required
 def ticket_create(request):
     form = forms.TicketForm()
