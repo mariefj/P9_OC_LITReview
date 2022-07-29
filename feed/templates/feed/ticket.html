@@ -1,5 +1,5 @@
-<div>
-    <div>
+<div class="ticket">
+    <div class="author">
         {% if request.user == post.user %}
             <p>Vous avez publié un ticket</p>
         {% else %}
@@ -7,7 +7,7 @@
         {% endif %}
         <p>{{ post.time_created | date:'h:H, d F Y'}}</p>
     </div>
-    <p>{{ post.title }}</p>
+    <p class="title">{{ post.title }}</p>
     <p>{{ post.description }}</p>
     {% if post.image %}
         <div>

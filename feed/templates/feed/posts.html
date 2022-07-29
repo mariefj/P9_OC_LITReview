@@ -1,17 +1,24 @@
 {% extends 'base.html' %}
 {% load feed_extra_tags %}
 {% block content %}
+<div id="posts">
     <h1>Vos posts</h1>
     {% for post in posts %}
-        <hr>
         {% with post|classname as post_classname %}
         {% if post_classname == 'Ticket' %}
-            {% include 'feed/ticket.html' %}
-            <a href="{% url 'review_answer' post.id %}">Créer une critique</a>
-            {% include 'feed/ticket_snippet_action.html' %}
+            <div class="home_ticket">
+                {% include 'feed/ticket.html' %}
+                <div class="buttons">
+                    <a class="button_full" href="{% url 'review_answer' post.id %}">Créer une critique</a>
+                    {% include 'feed/ticket_snippet_action.html' %}
+                </div>
+            </div>
         {% elif post_classname == 'Review' %}
-            {% include 'feed/review.html' %}
+            <div class="home_review">
+                {% include 'feed/review.html' %}
+            </div>
         {% endif %}
         {% endwith %}
     {% endfor %}
+</div>
 {% endblock content %}

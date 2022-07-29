@@ -1,5 +1,5 @@
-<div>
-    <div>
+<div class="review">
+    <div class="author">
         {% if request.user == post.user %}
             <p>Vous avez publié une critique</p>
         {% else %}
@@ -7,18 +7,18 @@
         {% endif %}
         <p>{{ post.time_created | date:'h:H, d F Y'}}</p>
     </div>
-    <div>
+    <div class="headline_rating">
         <p>{{ post.headline }}</p>
-        <p>{{ post.rating }}</p>
+        {% include 'feed/rating_snippet.html' with rating=post.rating %}
     </div>
     <p>{{ post.body }}</p>
     <div>
         {% include 'feed/ticket.html' with post=post.ticket %}
     </div>
     {% if request.user == post.user %}
-    <div>
-        <a href="{% url 'review_update' post.id %}">Modifier</a>
-        <a href="{% url 'review_delete' post.id %}">Supprimer</a>
+    <div class="buttons_review">
+        <a class="button_stroke" href="{% url 'review_update' post.id %}">Modifier</a>
+        <a class="button_stroke" href="{% url 'review_delete' post.id %}">Supprimer</a>
     </div>
     {% endif %}
 </div>

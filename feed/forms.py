@@ -45,7 +45,8 @@ class ReviewForm(forms.ModelForm):
     rating = forms.ChoiceField(
         label='Note',
         label_suffix='',
-        widget=forms.RadioSelect, choices=RATINGS
+        widget=forms.RadioSelect(attrs={'class': 'rating_form'}),
+        choices=RATINGS
     )
     body = forms.CharField(
         label='Commentaire',

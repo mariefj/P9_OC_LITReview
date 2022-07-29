@@ -6,16 +6,22 @@
         <a class="button_stroke" href="{% url 'ticket_create' %}">Demander une critique</a>
         <a class="button_full" href="{% url 'review_create' %}">Créer une critique</a>
     </div>
-        {% for post in posts %}
+    {% for post in posts %}
         {% with post|classname as post_classname %}
         {% if post_classname == 'Ticket' %}
-            {% include 'feed/ticket.html' %}
-            <a href="{% url 'review_answer' post.id %}">Créer une critique</a>
-            {% if request.user == post.user %}
-                {% include 'feed/ticket_snippet_action.html' %}
-            {% endif %}
-        {% elif post_classname == 'Review' %}
-            {% include 'feed/review.html' %}
+            <div class="home_ticket">
+                {% include 'feed/ticket.html' %}
+                <div class="buttons">
+                    <a class="button_full" href="{% url 'review_answer' post.id %}">Créer une critique</a>
+                    {% if request.user == post.user %}
+                        {% include 'feed/ticket_snippet_action.html' %}
+                    {% endif %}
+                </div>
+            </div>
+            {% elif post_classname == 'Review' %}
+            <div class="home_review">
+                {% include 'feed/review.html' %}
+            </div>
         {% endif %}
         {% endwith %}
     {% endfor %}
