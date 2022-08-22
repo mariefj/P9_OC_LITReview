@@ -11,10 +11,10 @@ This app has been realized as part of a project of the course
 'Application developer - Python' of OpenClassrooms.
 
 
-The app allowins a community of users to consult or request a book review on demand.
+The app allows a community of users to consult or request a book review on demand.
 It has two main use cases: 
--People requesting reviews on a particular book or article
--People looking for interesting articles and books to read, based on the reviews of others
+- People requesting reviews on a particular book or article
+- People looking for interesting articles and books to read, based on the reviews of others
 
 This app is built with Django. The database is a SQLite file : db.sqlite3
 
@@ -71,7 +71,7 @@ You can navigate through the app using the navigation bar at the top right.
 
 ##### Home #####
 At home page (Accueil), you will see all your tickets and reviews, and the ones of the people you follow.
-The 2 top buttons allows you to create a ticket (ask for a review) or create a review.
+The 2 top button allows you to create a ticket (ask for a review) or create a review.
 You can also create a review for a user's ticket.
 
 ##### Posts #####
