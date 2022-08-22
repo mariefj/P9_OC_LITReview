@@ -23,23 +23,22 @@ import feed.views
 import follow.views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('login/', authentication.views.login_page, name='login'),
-    path('logout/', authentication.views.logout_user, name='logout'),
-    path('signup/', authentication.views.signup_page, name='signup'),
-    path('', feed.views.home, name='home'),
-    path('posts/', feed.views.posts, name='posts'),
-    path('follow/', follow.views.follow, name='follow'),
-    path('unfollow/<id_user>', follow.views.unfollow, name='unfollow'),
-    path('ticket/create/', feed.views.ticket_create, name='ticket_create'),
-    path('ticket/<id_ticket>/update', feed.views.ticket_update, name='ticket_update'),
-    path('ticket/<id_ticket>/delete', feed.views.ticket_delete, name='ticket_delete'),
-    path('review/create/', feed.views.review_create, name='review_create'),
-    path('review/<id_ticket>/answer', feed.views.review_answer, name='review_answer'),
-    path('review/<id_review>/update', feed.views.review_update, name='review_update'),
-    path('review/<id_review>/delete', feed.views.review_delete, name='review_delete'),
+    path("admin/", admin.site.urls),
+    path("login/", authentication.views.login_page, name="login"),
+    path("logout/", authentication.views.logout_user, name="logout"),
+    path("signup/", authentication.views.signup_page, name="signup"),
+    path("", feed.views.home, name="home"),
+    path("posts/", feed.views.posts, name="posts"),
+    path("follow/", follow.views.follow, name="follow"),
+    path("unfollow/<id_user>", follow.views.unfollow, name="unfollow"),
+    path("ticket/create/", feed.views.ticket_create, name="ticket_create"),
+    path("ticket/<id_ticket>/update", feed.views.ticket_update, name="ticket_update"),
+    path("ticket/<id_ticket>/delete", feed.views.ticket_delete, name="ticket_delete"),
+    path("review/create/", feed.views.review_create, name="review_create"),
+    path("review/<id_ticket>/answer", feed.views.review_answer, name="review_answer"),
+    path("review/<id_review>/update", feed.views.review_update, name="review_update"),
+    path("review/<id_review>/delete", feed.views.review_delete, name="review_delete"),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
