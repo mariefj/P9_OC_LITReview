@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Modifier votre critique</h1>
-    <div>
-        <h2>Vous êtes en train de poster en réponse à</h2>
-        {% include 'feed/ticket.html' with post=ticket %}
+    <div class="update">
+        <h1>Modifier votre critique</h1>
+        <div>
+            <h2>Vous êtes en train de poster en réponse à</h2>
+            {% include 'feed/ticket.html' with post=ticket %}
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            <h3>Critique</h3>
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button class="button_full" type="submit">Envoyer</button>
+        </form>
     </div>
-    <form method="post" enctype="multipart/form-data">
-        <h3>Critique</h3>
-        {{ form.as_p }}
-        {% csrf_token %}
-        <button class="button_full" type="submit">Envoyer</button>
-    </form>
 {% endblock content %}

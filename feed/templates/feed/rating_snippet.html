@@ -1,24 +1,10 @@
+{% load feed_extra_tags %}
 <div class="rating">
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>
-    <span class="fa fa-star"></span>
+    {% for star in rating|list_stars %}
+        {% if star == "x" %}
+            <span class="fa fa-star checked"></span>
+        {% else %}
+            <span class="fa fa-star"></span>
+        {% endif %}
+    {% endfor %}
 </div>
-
-<script>
-    const rating_stars = [...document.getElementsByClassName("fa-star")];
-    const starClassChecked = "fa fa-star checked"
-    let i = 0;
-
-    const fill_stars = (stars) => {
-        console.log(rating)
-        stars.map((star) => {
-            for (i; i < rating; i++) {
-                stars[i].className = starClassChecked;
-            }
-        })
-    }
-
-    fill_stars(rating_stars);
-</script>
